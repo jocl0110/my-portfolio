@@ -1,3 +1,122 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Colors */
+:root {
+  --primary-color: #08090d;
+  --secondary-color: #1f2333;
+  --text-color: #ffffff;
+  --color-1: #0a192f;
+  --color-2: #2d2e32;
+  --color-3: #007bff;
+  --color-4: #20c997;
+  --color-4: #212529;
+  --color-5: #000000;
+}
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+/*! NavBar */
+nav {
+  background-color: var(--primary-color);
+  box-shadow: 1px 2px 2px 2px rgb(32, 201, 151);
+  transition: all ease-in-out 0.3s;
+  margin: 0 auto 3rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 70%;
+}
+nav:hover {
+  transition: all ease-in-out 0.3s;
+  box-shadow: 1px 3px 3px 3px rgb(32, 201, 151);
+}
+.my_image {
+  cursor: pointer;
+}
+nav > ul > li > img:hover {
+  transform: scale(1.05);
+  transition: all ease-in-out 0.3s;
+}
+ul {
+  list-style-type: none;
+}
+.navbar > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.links_container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.links_container > li {
+  padding: 0.5rem;
+}
+a {
+  color: #ffffff;
+}
+
+/* Main */
+/* Sections */
+section {
+  margin: 0 2rem;
+  background-color: var(--color-2);
+}
+/* Footer */
+footer {
+  color: #ffffff;
+}
+/* !MODAL IMAGE */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 300px;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeInScale 0.3s ease-in-out;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 /*! SPINNER */
 
 .sk-fading-circle {

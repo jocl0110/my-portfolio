@@ -32,6 +32,13 @@ interface Education {
   school: React.ReactNode | string;
   id: number;
 }
+interface Projects {
+  images: string[];
+  description: string;
+  name: string;
+  skills: string[];
+  id: number;
+}
 
 // Data
 const skills: Skill[] = [
@@ -102,18 +109,42 @@ const tabs = [
   { name: "Learning", content: { learning } },
 ];
 
-// Temporal Projects
-const projects = [
-  { description: "Cow", img: "", alt: "cow image" },
+const projects: Projects[] = [
   {
-    description: "Flower",
-    img: "/images/flower.webp",
-    alt: "flower image",
+    id: 1,
+    images: [
+      "../../images/todo-laptop.png",
+      "../../images/todo-tablet.png",
+      "../../images/todo-phone.png",
+    ],
+    name: "Todo List App",
+    description:
+      "This is one of my first projects built while learning React. It’s a simple yet functional application that allows users to manage a list of tasks easily. The app connects to Airtable API to fetch and update todos, giving me hands-on experience working with real data.",
+    skills: [" React", " TypeScript", " CSS", " API"],
   },
   {
-    description: "Turtle",
-    img: "/images/turtle.webp",
-    alt: "turtle image",
+    id: 2,
+    images: [
+      "../../images/recipe-laptop.png",
+      "../../images/recipe-tablet.png",
+      "../../images/recipe-phone.png",
+    ],
+    name: "Recipes App",
+    description:
+      "The Recipes App is a web application built with React that allows users to search for recipes by ingredients, view recipe details, and save their favorite recipes. The app fetches recipes from the Forkify API, and provides a smooth user experience for browsing, searching, and managing favorite recipes.",
+    skills: [" React", " TypeScript", " CSS", " Fetch API"],
+  },
+  {
+    id: 3,
+    images: [
+      "../../images/weather-laptop.png",
+      "../../images/weather-tablet.png",
+      "../../images/weather-phone.png",
+    ],
+    name: "Plan My Day | Weather App",
+    description:
+      "A simple weather application that allow users to check weather conditions for the city provided",
+    skills: [" HTML", " JavaScript", " CSS", " Fetch API"],
   },
 ];
 
