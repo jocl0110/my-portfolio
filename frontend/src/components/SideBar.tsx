@@ -9,18 +9,14 @@ import {
   FaFileDownload,
   FaTimes,
 } from "react-icons/fa";
+import { SideBarStateProps } from "../App";
 
-interface SideBarProps {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen?: (isOpen: boolean) => void;
-}
-
-function SideBar({ isSidebarOpen, setIsSidebarOpen }: SideBarProps) {
+function SideBar({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <>
-      <aside className={`navbar ${isSidebarOpen ? "open" : "closed"}`}>
+      <aside className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
         <button
           className="sidebar-close"
           onClick={() => setIsSidebarOpen?.(!isSidebarOpen)}
@@ -33,16 +29,12 @@ function SideBar({ isSidebarOpen, setIsSidebarOpen }: SideBarProps) {
               onClick={() => setIsModalOpen(true)}
               className="my_image"
               src="../../images/me.png"
-              style={{
-                width: "70px",
-                height: "auto",
-              }}
               alt="me"
             />
           </li>
           <div className="header-text">
-            <h1 id="home">Jose | Izquierdo</h1>
-            <h3>Full-Stack Developer</h3>
+            <h1>Jose | Izquierdo</h1>
+            <h3>MERN Stack Developer</h3>
           </div>
           <div className="links_container">
             <li>
