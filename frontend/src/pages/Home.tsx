@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { education, learning, myAge, projects, skills } from "./data";
 import {
   IoIosLaptop,
@@ -7,9 +7,55 @@ import {
 } from "react-icons/io";
 import ToggleBtn from "../components/ToggleBtn";
 import { SideBarStateProps } from "../App";
+import Modal from "../components/Modal";
 
-function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
+interface HomeProps extends SideBarStateProps {
+  isModalOpen: boolean;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  modalImage: string;
+  setModalImage: React.Dispatch<React.SetStateAction<string>>;
+}
+
+function Home({
+  isSidebarOpen,
+  setIsSidebarOpen,
+  isModalOpen,
+  setIsModalOpen,
+  modalImage,
+  setModalImage,
+}: HomeProps) {
   const [activeTab, setActiveTab] = useState("knowledge");
+  const [selectedImages, setSelectedImages] = useState<Record<number, string>>(
+    projects.reduce((acc, project) => {
+      acc[project.id] = project.images[0];
+      return acc;
+    }, {} as Record<number, string>)
+  );
+  const [selectedDevices, setSelectedDevices] = useState<
+    Record<number, number>
+  >(
+    projects.reduce((acc, project) => {
+      acc[project.id] = 0;
+      return acc;
+    }, {} as Record<number, number>)
+  );
+
+  const handleImageChange = (projectId: number, imageIndex: number) => {
+    setSelectedImages((prev) => ({
+      ...prev,
+      [projectId]:
+        projects.find((p) => p.id === projectId)?.images[imageIndex] ||
+        prev[projectId],
+    }));
+    setSelectedDevices((prev) => ({
+      ...prev,
+      [projectId]: imageIndex,
+    }));
+  };
+  const openModal = (image: string) => {
+    setModalImage(image);
+    setIsModalOpen(true);
+  };
 
   return (
     <main className={isSidebarOpen ? "" : "sidebar-closed"}>
@@ -19,8 +65,8 @@ function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
       />
       <section className="skills-section">
         <div>
-          <h4 onClick={() => setActiveTab("knowledge")}>Skills I have</h4>
-          <h4 onClick={() => setActiveTab("learning")}>Skills I'm learning</h4>
+          <h4 onClick={() => setActiveTab("knowledge")}>Knowledge</h4>
+          <h4 onClick={() => setActiveTab("learning")}>Learning</h4>
         </div>
         <div>
           <ul>
@@ -62,58 +108,63 @@ function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
       </section>
       <section className="projects-section">
         <h2 id="projects">Projects</h2>
-
         <div className="project-container">
-          {projects.map((project) => {
-            const [selectedImage, setSelectedImage] = useState(
-              project.images[0]
-            );
-            return (
-              <div key={project.id}>
-                <div>
-                  <span>
-                    <IoIosLaptop
-                      onClick={() => setSelectedImage(project.images[0])}
-                    />
+          {projects.map((project) => (
+            <div className="projects" key={project.id}>
+              <div>
+                <div className="device-icons">
+                  <span
+                    className={
+                      selectedDevices[project.id] === 0 ? "selected" : ""
+                    }
+                    onClick={() => handleImageChange(project.id, 0)}
+                  >
+                    <IoIosLaptop />
                   </span>
-                  <span>
-                    <IoIosTabletPortrait
-                      onClick={() => setSelectedImage(project.images[1])}
-                    />
+                  <span
+                    className={
+                      selectedDevices[project.id] === 1 ? "selected" : ""
+                    }
+                    onClick={() => handleImageChange(project.id, 1)}
+                  >
+                    <IoIosTabletPortrait />
                   </span>
-                  <span>
-                    <IoIosPhonePortrait
-                      onClick={() => setSelectedImage(project.images[2])}
-                    />
+                  <span
+                    className={
+                      selectedDevices[project.id] === 2 ? "selected" : ""
+                    }
+                    onClick={() => handleImageChange(project.id, 2)}
+                  >
+                    <IoIosPhonePortrait />
                   </span>
+                </div>
+                <figure>
+                  <figcaption>{project.name}</figcaption>
                   <img
-                    style={{
-                      width: "100px",
-                      transition: "opacity 0.3s ease-in-out",
-                    }}
-                    src={selectedImage}
+                    onClick={() => openModal(selectedImages[project.id])}
+                    src={selectedImages[project.id]}
                     alt={`Image of ${project.name} in different devices`}
                   />
-                </div>
-                <p>Title: {project.name}</p>
-                <p> Summary: {project.description}</p>
-                <p>
-                  Built using:
-                  {project.skills.map((skill) => {
-                    return (
-                      <span key={skill.id}>
-                        <img style={{ width: "24px" }} src={skill.icon} />
-                        {skill.skill}
-                      </span>
-                    );
-                  })}
-                </p>
-                <a target="_blank" href={project.github}>
-                  Check it out here!
-                </a>
+                </figure>
               </div>
-            );
-          })}
+              <p>{project.description}</p>
+              <div className="skills-container">
+                {project.skills.map((skill) => (
+                  <span key={skill.id}>
+                    <img src={skill.icon} alt={skill.skill} />
+                    {skill.skill}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Project
+              </a>
+            </div>
+          ))}
         </div>
       </section>
       <section>
@@ -135,6 +186,9 @@ function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
           beginning.
         </p>
       </section>
+      {isModalOpen && (
+        <Modal setIsModalOpen={setIsModalOpen} image={modalImage} />
+      )}
     </main>
   );
 }

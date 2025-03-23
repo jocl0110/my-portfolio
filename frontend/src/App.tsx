@@ -4,21 +4,27 @@ import Form from "./pages/Form";
 import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 import "./App.css";
-import React, { SetStateAction, useState } from "react";
+import React, { useState } from "react";
 
 export interface SideBarStateProps {
   isSidebarOpen: boolean;
-  setIsSidebarOpen?: React.Dispatch<SetStateAction<boolean>>;
+  setIsSidebarOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [modalImage, setModalImage] = useState("");
   return (
     <>
       <Router>
         <SideBar
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          modalImage={modalImage}
+          setModalImage={setModalImage}
         />
         <Routes>
           <Route
@@ -27,6 +33,10 @@ function App() {
               <Home
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                modalImage={modalImage}
+                setModalImage={setModalImage}
               />
             }
           />

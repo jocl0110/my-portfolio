@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router";
 import {
   FaHome,
@@ -9,11 +8,29 @@ import {
   FaFileDownload,
   FaTimes,
 } from "react-icons/fa";
-import { SideBarStateProps } from "../App";
+import React from "react";
+import Modal from "./Modal";
+interface SideBarProps {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isModalOpen: boolean;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalImage: React.Dispatch<React.SetStateAction<string>>;
+  modalImage: string;
+}
 
-function SideBar({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
+function SideBar({
+  isSidebarOpen,
+  setIsSidebarOpen,
+  setIsModalOpen,
+  isModalOpen,
+  setModalImage,
+  modalImage,
+}: SideBarProps) {
+  const openModal = () => {
+    setIsModalOpen(true);
+    setModalImage("../../images/me.png");
+  };
   return (
     <>
       <aside className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
@@ -26,7 +43,7 @@ function SideBar({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
         <ul>
           <li>
             <img
-              onClick={() => setIsModalOpen(true)}
+              onClick={openModal}
               className="my_image"
               src="../../images/me.png"
               alt="me"
@@ -72,17 +89,7 @@ function SideBar({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
       </aside>
 
       {isModalOpen && (
-        <div
-          className="modal"
-          onClick={() => setIsModalOpen(false)} // Close when clicking outside
-        >
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close" onClick={() => setIsModalOpen(false)}>
-              &times;
-            </span>
-            <img src="../../images/me.png" alt="me" />
-          </div>
-        </div>
+        <Modal setIsModalOpen={setIsModalOpen} image={modalImage} />
       )}
     </>
   );

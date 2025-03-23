@@ -120,7 +120,7 @@ const projects: Projects[] = [
     ],
     name: "Todo List App",
     description:
-      "This is one of my first projects built while learning React. It’s a simple yet functional application that allows users to manage a list of tasks easily. The app connects to Airtable API to fetch and update todos, giving me hands-on experience working with real data.",
+      "This is one of my first projects built while learning React. It’s a simple yet functional application that allows users to manage a list of tasks easily. The app connects to Airtable API to fetch and update todos.",
     skills: [
       { skill: " React", id: 1, icon: reactIcon },
       { skill: "TypeScript", id: 2, icon: typeIcon },
@@ -137,7 +137,7 @@ const projects: Projects[] = [
     ],
     name: "Recipes App",
     description:
-      "The Recipes App is a web application built with React that allows users to search for recipes by ingredients, view recipe details, and save their favorite recipes. The app fetches recipes from the Forkify API, and provides a smooth user experience for browsing, searching, and managing favorite recipes.",
+      "The Recipes App is a web application built with React that allows users to search for recipes by ingredients, view recipe details, and save their favorite recipes. The app fetches recipes from the Forkify API.",
 
     skills: [
       { skill: " React", id: 4, icon: reactIcon },
@@ -153,9 +153,9 @@ const projects: Projects[] = [
       "../../images/weather-tablet.png",
       "../../images/weather-phone.png",
     ],
-    name: "Plan My Day | Weather App",
+    name: "Weather App",
     description:
-      "A simple weather application that allow users to check weather conditions for the city provided",
+      "A simple weather application that allow users to check weather conditions for the city provided, with a 7 day forecast, air quality conditions and wind speeds included. Built using Vanilla JavaScript",
     skills: [
       { skill: "HTML", id: 7, icon: htmlIcon },
       { skill: "JavaScript", id: 8, icon: javascriptIcon },
