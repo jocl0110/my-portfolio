@@ -1,26 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { education, learning, myAge, projects, skills } from "./data";
 import {
   IoIosLaptop,
   IoIosPhonePortrait,
   IoIosTabletPortrait,
 } from "react-icons/io";
-import { FaBars } from "react-icons/fa";
 import ToggleBtn from "../components/ToggleBtn";
+import { SideBarStateProps } from "../App";
 
-interface HomeProps {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen: (isOpen: boolean) => void;
-}
-
-function Home({ isSidebarOpen, setIsSidebarOpen }: HomeProps) {
+function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
   const [activeTab, setActiveTab] = useState("knowledge");
-  useEffect(() => {
-    const main = document.querySelector("main");
-    if (main) {
-      main.classList.toggle("sidebar-closed", !isSidebarOpen);
-    }
-  }, [isSidebarOpen]);
 
   return (
     <main className={isSidebarOpen ? "" : "sidebar-closed"}>
@@ -107,6 +96,9 @@ function Home({ isSidebarOpen, setIsSidebarOpen }: HomeProps) {
                 <p>Title: {project.name}</p>
                 <p> Summary: {project.description}</p>
                 <p>Built using: {project.skills}</p>
+                <a target="_blank" href={project.github}>
+                  Check it out here!
+                </a>
               </div>
             );
           })}

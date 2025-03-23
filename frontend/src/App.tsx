@@ -4,7 +4,12 @@ import Form from "./components/Form";
 import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 import "./App.css";
-import { useState } from "react";
+import React, { SetStateAction, useState } from "react";
+
+export interface SideBarStateProps {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen?: React.Dispatch<SetStateAction<boolean>>;
+}
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
@@ -35,7 +40,7 @@ function App() {
             }
           />
         </Routes>
-        <Footer />
+        <Footer isSidebarOpen={isSidebarOpen} />
       </Router>
     </>
   );

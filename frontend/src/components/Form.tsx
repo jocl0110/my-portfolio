@@ -2,12 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import "../App.css";
 import ToggleBtn from "./ToggleBtn";
+import { SideBarStateProps } from "../App";
 
-interface FormProps {
-  setIsSidebarOpen: (isOpen: boolean) => void;
-}
-
-function Form({ setIsSidebarOpen, isSidebarOpen }) {
+function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",

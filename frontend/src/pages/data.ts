@@ -38,6 +38,7 @@ interface Projects {
   name: string;
   skills: string[];
   id: number;
+  github: string;
 }
 
 // Data
@@ -111,6 +112,7 @@ const tabs = [
 
 const projects: Projects[] = [
   {
+    github: "https://github.com/jocl0110/react-todo",
     id: 1,
     images: [
       "../../images/todo-laptop.png",
@@ -123,6 +125,7 @@ const projects: Projects[] = [
     skills: [" React", " TypeScript", " CSS", " API"],
   },
   {
+    github: "https://github.com/jocl0110/RecipesApp",
     id: 2,
     images: [
       "../../images/recipe-laptop.png",
@@ -132,9 +135,11 @@ const projects: Projects[] = [
     name: "Recipes App",
     description:
       "The Recipes App is a web application built with React that allows users to search for recipes by ingredients, view recipe details, and save their favorite recipes. The app fetches recipes from the Forkify API, and provides a smooth user experience for browsing, searching, and managing favorite recipes.",
+
     skills: [" React", " TypeScript", " CSS", " Fetch API"],
   },
   {
+    github: "https://github.com/jocl0110/plan-my-day",
     id: 3,
     images: [
       "../../images/weather-laptop.png",

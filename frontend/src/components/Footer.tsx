@@ -1,7 +1,9 @@
-function Footer() {
+import { SideBarStateProps } from "../App";
+
+function Footer({ isSidebarOpen }: SideBarStateProps) {
   const year = new Date().getFullYear();
   return (
-    <footer>
+    <footer className={isSidebarOpen ? "sidebar-open" : "sidebar-closed"}>
       <ul>
         <li>Twitter</li>
         <li>LinkedIn</li>
