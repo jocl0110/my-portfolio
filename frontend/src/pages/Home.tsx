@@ -44,6 +44,7 @@ function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
       </section>
       <section className="education-section">
         <h2 id="education">Education & Training</h2>
+
         <div className="education-container">
           <ul>
             {education.map((goal) => {
@@ -61,6 +62,7 @@ function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
       </section>
       <section className="projects-section">
         <h2 id="projects">Projects</h2>
+
         <div className="project-container">
           {projects.map((project) => {
             const [selectedImage, setSelectedImage] = useState(
@@ -95,7 +97,17 @@ function Home({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
                 </div>
                 <p>Title: {project.name}</p>
                 <p> Summary: {project.description}</p>
-                <p>Built using: {project.skills}</p>
+                <p>
+                  Built using:
+                  {project.skills.map((skill) => {
+                    return (
+                      <span key={skill.id}>
+                        <img style={{ width: "24px" }} src={skill.icon} />
+                        {skill.skill}
+                      </span>
+                    );
+                  })}
+                </p>
                 <a target="_blank" href={project.github}>
                   Check it out here!
                 </a>
