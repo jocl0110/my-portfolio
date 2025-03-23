@@ -8,4 +8,3 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </StrictMode>
 );
-console.log(<h1>Hello World</h1>);

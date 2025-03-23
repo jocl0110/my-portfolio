@@ -1,8 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 import "../App.css";
+import ToggleBtn from "./ToggleBtn";
 
-function Form() {
+interface FormProps {
+  setIsSidebarOpen: (isOpen: boolean) => void;
+}
+
+function Form({ setIsSidebarOpen, isSidebarOpen }) {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -45,7 +50,11 @@ function Form() {
     }));
   };
   return (
-    <div>
+    <main className={isSidebarOpen ? "" : "sidebar-closed"}>
+      <ToggleBtn
+        setIsSidebarOpen={setIsSidebarOpen}
+        isSidebarOpen={isSidebarOpen}
+      />
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="first_name">First Name:</label>
@@ -116,7 +125,7 @@ function Form() {
         </div>
       )}
       {message && <p>{message}</p>}
-    </div>
+    </main>
   );
 }
 
