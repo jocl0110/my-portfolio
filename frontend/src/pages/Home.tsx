@@ -1,25 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { education, learning, myAge, projects, skills } from "./data";
 import {
   IoIosLaptop,
   IoIosPhonePortrait,
   IoIosTabletPortrait,
 } from "react-icons/io";
+import { FaBars } from "react-icons/fa";
+import ToggleBtn from "../components/ToggleBtn";
 
-function Home() {
+interface HomeProps {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: (isOpen: boolean) => void;
+}
+
+function Home({ isSidebarOpen, setIsSidebarOpen }: HomeProps) {
   const [activeTab, setActiveTab] = useState("knowledge");
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (main) {
+      main.classList.toggle("sidebar-closed", !isSidebarOpen);
+    }
+  }, [isSidebarOpen]);
 
   return (
-    <main>
-      <section>
-        <h1 id="home">Jose | Izquierdo</h1>
-        <h3>Full-Stack Developer</h3>
-      </section>
-      <section>
+    <main className={isSidebarOpen ? "" : "sidebar-closed"}>
+      <ToggleBtn
+        setIsSidebarOpen={setIsSidebarOpen}
+        isSidebarOpen={isSidebarOpen}
+      />
+      <section className="skills-section">
         <div>
-          <h3>Skills</h3>
-          <h4 onClick={() => setActiveTab("knowledge")}>Knowledge</h4>
-          <h4 onClick={() => setActiveTab("learning")}>Learning</h4>
+          <h4 onClick={() => setActiveTab("knowledge")}>Skills I have</h4>
+          <h4 onClick={() => setActiveTab("learning")}>Skills I'm learning</h4>
         </div>
         <div>
           <ul>
@@ -33,11 +45,7 @@ function Home() {
               : learning.map((data) => {
                   return (
                     <li key={data.id}>
-                      <img
-                        style={{ width: "24px" }}
-                        src={data.icon}
-                        alt="icon"
-                      />
+                      <img src={data.icon} alt="icon" />
                       <span>{data.skill}</span>
                     </li>
                   );
@@ -45,9 +53,9 @@ function Home() {
           </ul>
         </div>
       </section>
-      <section>
+      <section className="education-section">
         <h2 id="education">Education & Training</h2>
-        <div>
+        <div className="education-container">
           <ul>
             {education.map((goal) => {
               return (
@@ -62,9 +70,9 @@ function Home() {
           </ul>
         </div>
       </section>
-      <section>
+      <section className="projects-section">
         <h2 id="projects">Projects</h2>
-        <div>
+        <div className="project-container">
           {projects.map((project) => {
             const [selectedImage, setSelectedImage] = useState(
               project.images[0]
@@ -96,8 +104,8 @@ function Home() {
                     alt={`Image of ${project.name} in different devices`}
                   />
                 </div>
-                <p>{project.name}</p>
-                <p>{project.description}</p>
+                <p>Title: {project.name}</p>
+                <p> Summary: {project.description}</p>
                 <p>Built using: {project.skills}</p>
               </div>
             );
@@ -120,7 +128,7 @@ function Home() {
           Science. I am refining my skills as a Front End Developer while also
           exploring Back End Development to gain a comprehensive understanding
           of software development, which has been my ultimate goal from the
-          beginning. To further expand my knowledge.
+          beginning.
         </p>
       </section>
     </main>
