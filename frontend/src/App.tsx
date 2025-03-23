@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router";
 import Home from "./pages/Home";
-import Form from "./components/Form";
+import Form from "./pages/Form";
 import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 import "./App.css";
@@ -12,7 +12,7 @@ export interface SideBarStateProps {
 }
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   return (
     <>
       <Router>

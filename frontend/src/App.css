@@ -99,7 +99,7 @@ aside {
   position: fixed;
   top: 0px;
   left: 0px;
-  box-shadow: 0 1px 1px 1px rgb(255, 255, 255);
+  box-shadow: 0 2px 2px 2px rgb(255, 255, 255, 0.4);
   transition: all ease-in-out 0.3s;
   margin: 0 auto 3rem;
   padding: 0.5rem;
@@ -111,7 +111,7 @@ aside {
 }
 
 aside.closed {
-  transform: translateX(-100%);
+  transform: translateX(-101%);
 }
 
 .my_image {
@@ -172,8 +172,6 @@ aside > ul > li > img:hover {
 }
 /* !Website Body */
 main {
-  /* margin-left: 350px;
-  margin-right: 45px; */
   margin: 0 45px 0 395px;
   padding: 20px;
   text-align: center;
@@ -253,7 +251,7 @@ h2 {
 }
 span {
   cursor: pointer;
-  font-size: 24px;
+  font-size: 1.2rem;
   margin: 5px;
 }
 span:hover {

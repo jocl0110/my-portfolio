@@ -36,7 +36,7 @@ interface Projects {
   images: string[];
   description: string;
   name: string;
-  skills: string[];
+  skills: Skill[];
   id: number;
   github: string;
 }
@@ -44,9 +44,7 @@ interface Projects {
 // Data
 const skills: Skill[] = [
   { skill: "HTML5", id: 1, icon: htmlIcon },
-  { skill: "CSS", id: 13, icon: cssIcon },
   { skill: "JavaScript", id: 2, icon: javascriptIcon },
-
   { skill: "React", id: 3, icon: reactIcon },
   { skill: "React Router", id: 4, icon: reactRouterIcon },
   { skill: "GitHub", id: 5, icon: githubIcon },
@@ -56,6 +54,7 @@ const skills: Skill[] = [
   { skill: "Node.js", id: 10, icon: nodeIcon },
   { skill: "Express.js", id: 11, icon: expressIcon },
   { skill: "MongoDB", id: 12, icon: mongoIcon },
+  { skill: "CSS", id: 13, icon: cssIcon },
 ];
 const learning = [
   { skill: "MySQL", id: 1, icon: mySQLIcon },
@@ -122,7 +121,11 @@ const projects: Projects[] = [
     name: "Todo List App",
     description:
       "This is one of my first projects built while learning React. It’s a simple yet functional application that allows users to manage a list of tasks easily. The app connects to Airtable API to fetch and update todos, giving me hands-on experience working with real data.",
-    skills: [" React", " TypeScript", " CSS", " API"],
+    skills: [
+      { skill: " React", id: 1, icon: reactIcon },
+      { skill: "TypeScript", id: 2, icon: typeIcon },
+      { skill: "CSS", id: 3, icon: cssIcon },
+    ],
   },
   {
     github: "https://github.com/jocl0110/RecipesApp",
@@ -136,7 +139,11 @@ const projects: Projects[] = [
     description:
       "The Recipes App is a web application built with React that allows users to search for recipes by ingredients, view recipe details, and save their favorite recipes. The app fetches recipes from the Forkify API, and provides a smooth user experience for browsing, searching, and managing favorite recipes.",
 
-    skills: [" React", " TypeScript", " CSS", " Fetch API"],
+    skills: [
+      { skill: " React", id: 4, icon: reactIcon },
+      { skill: "TypeScript", id: 5, icon: typeIcon },
+      { skill: "CSS", id: 6, icon: cssIcon },
+    ],
   },
   {
     github: "https://github.com/jocl0110/plan-my-day",
@@ -149,7 +156,11 @@ const projects: Projects[] = [
     name: "Plan My Day | Weather App",
     description:
       "A simple weather application that allow users to check weather conditions for the city provided",
-    skills: [" HTML", " JavaScript", " CSS", " Fetch API"],
+    skills: [
+      { skill: "HTML", id: 7, icon: htmlIcon },
+      { skill: "JavaScript", id: 8, icon: javascriptIcon },
+      { skill: "CSS", id: 9, icon: cssIcon },
+    ],
   },
 ];
 
