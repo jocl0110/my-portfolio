@@ -445,7 +445,39 @@ footer.sidebar-open {
   font-size: 24px;
   cursor: pointer;
 }
-
+/* ! About Me Section */
+.about-me-section {
+  padding: 2rem;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  max-width: 1000px;
+  margin: auto;
+  text-align: left;
+}
+.about-me-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.about-me-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.about-me-section .highlight {
+  color: var(--color-4);
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .about-me-section {
+    padding: 1.5rem;
+    text-align: justify;
+  }
+  .about-me-section h2 {
+    font-size: 1.8rem;
+  }
+  .about-me-section p {
+    font-size: 1rem;
+  }
+}
 /*! SPINNER */
 
 .sk-fading-circle {

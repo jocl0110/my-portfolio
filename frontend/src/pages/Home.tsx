@@ -167,23 +167,43 @@ function Home({
           ))}
         </div>
       </section>
-      <section>
+      <section className="about-me-section">
         <h2 id="about_me">About Me</h2>
         <p>
-          My name is Jose Izquierdo, I'm {myAge} years old and I was born in
-          Cuba, but currently reside in the United States. I began my studies at
-          the University of Informatics Sciences in Havana, Cuba, where I gained
-          a solid foundation in programming during my first year with C++. After
-          immigrating to the United States, I decided not to abandon my passion
-          for coding. I joined Code The Dream for one year, where I received
-          rigorous, intensive training in web development. This program has
-          allowed me to deepen my skills and prepare myself for the challenges
-          of today's digital world. Currently, I have plans to continue my
-          university education to obtain a Bachelor's degree in Computer
-          Science. I am refining my skills as a Front End Developer while also
-          exploring Back End Development to gain a comprehensive understanding
-          of software development, which has been my ultimate goal from the
-          beginning.
+          My name full name is Jose Luis Izquierdo Hernandez, I'm {myAge} years
+          old and I was born in Cuba, but currently reside in the United States.
+        </p>
+        <p>
+          I began my studies at the University of Informatics Sciences in
+          Havana, Cuba, where I gained a solid foundation in programming during
+          my first year with <span className="highlight">C++</span>.
+          Unfortunately, I couldn't finish university due to the situation in my
+          country.
+        </p>{" "}
+        <p>
+          After immigrating to the United States, I decided not to abandon my
+          passion for coding. I joined Code The Dream for one year, where I
+          received rigorous, intensive training in web development technologies
+          like <span className="highlight">HTML, CSS, JavaScript</span> and{" "}
+          <span className="highlight">React.js</span>. This program has allowed
+          me to deepen my skills and prepare myself for the challenges of
+          today's digital world.
+        </p>{" "}
+        <p>
+          As part of my continuos learning journey, I recently completed an
+          Udemy course on Back-End development, where I gained hands-on
+          experience with <span className="highlight">Node.js</span>,
+          <span className="highlight">Express.js</span>,{" "}
+          <span className="highlight">MongoDB</span> and
+          <span className="highlight">Mongoose</span>.
+        </p>
+        <p>
+          Currently, I plan to continue my university education to obtain a
+          Bachelor's degree in Computer Science. I am refining my skills as a{" "}
+          <span className="highlight">Front End Developer</span> while also
+          exploring <span className="highlight">Back End Development</span> to
+          gain a broader understanding of the field and specialize myself in one
+          these two areas.
         </p>
       </section>
       {isModalOpen && (
