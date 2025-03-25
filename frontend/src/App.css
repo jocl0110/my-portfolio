@@ -503,6 +503,7 @@ footer p {
 .social-icons a {
   color: #fff;
   font-size: 1.5rem;
+  transition: ease-in-out all 0.3s;
 }
 .social-icons a:hover {
   color: var(--color-4);
