@@ -1,6 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SideBarStateProps } from "../App";
-import { FaX } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 
 function Footer({ isSidebarOpen }: SideBarStateProps) {
   const year = new Date().getFullYear();
@@ -27,7 +27,7 @@ function Footer({ isSidebarOpen }: SideBarStateProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaX />
+          <FaXTwitter />
         </a>
       </div>
     </footer>
