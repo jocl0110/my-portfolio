@@ -43,7 +43,7 @@ interface Projects {
 
 // Data
 const skills: Skill[] = [
-  { skill: "HTML5", id: 1, icon: htmlIcon },
+  { skill: "HTML", id: 1, icon: htmlIcon },
   { skill: "JavaScript", id: 2, icon: javascriptIcon },
   { skill: "React", id: 3, icon: reactIcon },
   { skill: "React Router", id: 4, icon: reactRouterIcon },

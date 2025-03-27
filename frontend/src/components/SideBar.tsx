@@ -8,8 +8,9 @@ import {
   FaFileDownload,
   FaTimes,
 } from "react-icons/fa";
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "./Modal";
+import { useLocation } from "react-router";
 interface SideBarProps {
   isSidebarOpen: boolean;
   setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,6 +32,13 @@ function SideBar({
     setIsModalOpen(true);
     setModalImage("../../images/me.png");
   };
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash === "#home") {
+      document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
   return (
     <>
       <aside className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
@@ -51,11 +59,11 @@ function SideBar({
           </li>
           <div className="header-text">
             <h1>Jose | Izquierdo</h1>
-            <h3>MERN Stack Developer</h3>
+            <h3>Full Stack Developer</h3>
           </div>
           <div className="links_container">
             <li>
-              <Link to={"/"}>
+              <Link to={location.pathname === "/send_email" ? "/" : "/#home"}>
                 <FaHome className="nav-icon" /> Home
               </Link>
             </li>

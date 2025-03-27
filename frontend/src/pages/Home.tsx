@@ -63,31 +63,83 @@ function Home({
         setIsSidebarOpen={setIsSidebarOpen}
         isSidebarOpen={isSidebarOpen}
       />
-      <section className="skills-section">
-        <div>
-          <h4 onClick={() => setActiveTab("knowledge")}>Knowledge</h4>
-          <h4 onClick={() => setActiveTab("learning")}>Learning</h4>
+      <div id="home" className="first-section">
+        <div className="intro-section">
+          <h1 className="greeting">Hi there!</h1>
+          <h1 className="name">I'm Jose Izquierdo</h1>
+          <h2 className="role">Full Stack Web Developer</h2>
+          <p className="description">
+            Passionate about building web experiences with modern technologies
+          </p>
         </div>
-        <div>
-          <ul>
-            {activeTab === "knowledge"
-              ? skills.map((data) => (
-                  <li key={data.id}>
-                    <img style={{ width: "24px" }} src={data.icon} alt="icon" />
+        <div className="work-section">
+          <h1 className="title">What do I do?</h1>
+          <p className="details">
+            From front-end design to back-end logic, I bring ideas to life with
+            clean and scalable code using React, Node.js and MongoDB.
+          </p>
+        </div>
+        <div className="welcome-section">
+          <h1>Welcome to my Portfolio</h1>
+          <p className="welcome-text">
+            Explore my projects and skills to see how I can contribute to your
+            next big idea!
+          </p>
+        </div>
+        <section className="skills-section">
+          <div className="header-btns">
+            <button
+              className={activeTab === "knowledge" ? "active" : ""}
+              onClick={() => setActiveTab("knowledge")}
+            >
+              Knowledge
+            </button>
+            <button
+              className={activeTab === "learning" ? "active" : ""}
+              onClick={() => setActiveTab("learning")}
+            >
+              Learning
+            </button>
+          </div>
+          <div className="skills-container">
+            <ul>
+              {/* Dynamically rendering items */}
+              {(activeTab === "knowledge" ? skills : learning).map((data) => {
+                return (
+                  <li className="skill" key={data.id}>
+                    <img className="tech-icon" src={data.icon} alt="icon" />
                     <span>{data.skill}</span>
                   </li>
-                ))
-              : learning.map((data) => {
-                  return (
-                    <li key={data.id}>
-                      <img src={data.icon} alt="icon" />
+                );
+              })}
+
+              {/* Duplicate the list for seamless scrolling */}
+              {(activeTab === "knowledge" ? skills : learning).map((data) => (
+                <li className="skill" key={`dup-${data.id}`}>
+                  <img className="tech-icon" src={data.icon} alt="icon" />
+                  <span>{data.skill}</span>
+                </li>
+              ))}
+
+              {/* {activeTab === "knowledge"
+                ? skills.map((data) => (
+                    <li className="skill" key={data.id}>
+                      <img className="tech-icon" src={data.icon} alt="icon" />
                       <span>{data.skill}</span>
                     </li>
-                  );
-                })}
-          </ul>
-        </div>
-      </section>
+                  ))
+                : learning.map((data) => {
+                    return (
+                      <li className="skill" key={data.id}>
+                        <img className="tech-icon" src={data.icon} alt="icon" />
+                        <span>{data.skill}</span>
+                      </li>
+                    );
+                  })} */}
+            </ul>
+          </div>
+        </section>
+      </div>
       <section className="education-section">
         <h2 id="education">Education & Training</h2>
 
