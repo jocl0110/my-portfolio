@@ -3,6 +3,7 @@ import axios from "axios";
 import "../App.css";
 import ToggleBtn from "../components/ToggleBtn";
 import { SideBarStateProps } from "../App";
+import { IoIosSend } from "react-icons/io";
 
 function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
   const [formData, setFormData] = useState({
@@ -12,7 +13,10 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
     subject: "",
     message: "",
   });
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState({
+    success: false,
+    message: "",
+  });
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,18 +27,28 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
           "Content-Type": "application/json",
         },
       });
-      setMessage(response.data.message);
-
-      setTimeout(() => {
-        setMessage("");
-      }, 3000);
-      setIsLoading(false);
-    } catch (error) {
+      console.log(response);
+      setMessage({
+        success: response.data.success,
+        message: response.data.message,
+      });
+    } catch (error: any) {
       console.log(error);
 
-      setIsLoading(false);
+      setMessage({
+        success: false,
+        message:
+          error.response?.data?.message ||
+          "Something went wrong. Please try again",
+      });
     } finally {
       setIsLoading(false);
+      setTimeout(() => {
+        setMessage({
+          success: false,
+          message: "",
+        });
+      }, 3000);
     }
   };
   const handleChange = (
@@ -103,7 +117,9 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
             rows={5}
           ></textarea>
         </div>
-        <button disabled={isLoading}>Submit</button>
+        <button disabled={isLoading}>
+          Send <IoIosSend />
+        </button>
       </form>
       {isLoading && (
         <div className="sk-fading-circle">
@@ -121,7 +137,11 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
           <div className="sk-circle12 sk-circle"></div>
         </div>
       )}
-      {message && <p>{message}</p>}
+      {message.message && (
+        <p className={`message ${message.success ? "success" : "warning"} `}>
+          {message.message}
+        </p>
+      )}
     </main>
   );
 }
