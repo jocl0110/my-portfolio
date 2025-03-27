@@ -3,6 +3,7 @@
 *,
 ::after,
 ::before {
+  scroll-behavior: smooth;
   font-family: Cardo, serif;
   box-sizing: border-box;
   margin: 0;
@@ -19,13 +20,16 @@ body {
   background-color: var(--primary-color);
   color: var(--text-color);
 }
+h1 {
+  font-size: 3.5rem;
+}
 /*! Color Variables */
 :root {
   --primary-color: #08090d;
   --header-size: 3rem;
   --secondary-color: #1f2333;
   --text-color: #ffffff;
-  --color-1: #0a192f;
+  --color-1: #393e46;
   --color-2: #2d2e32;
   --color-3: #007bff;
   --color-4: #20c997;
@@ -186,40 +190,164 @@ main.sidebar-closed {
   margin-left: 45px;
 }
 
-/* !Skills section */
-.skills-section {
-  background: rgba(255, 255, 255, 0.1);
+/* !First section */
+.first-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
   padding: 20px;
-  width: 100%;
-  border-radius: 10px;
-  margin: 10rem 0;
+  gap: 12px;
+  height: 100vh;
 }
-.skills-section div h4 {
-  display: inline-block;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: var(--color-4);
+/* Placements */
+.intro-section {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
 }
-.skills-section div h4:hover {
-  color: #fff;
+.work-section {
+  grid-column: span 2 / span 2;
+  grid-column-start: 3;
+}
+.welcome-section {
+  grid-column: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+/* Common section styles */
+.intro-section,
+.work-section,
+.welcome-section {
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 12px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.intro-section:hover,
+.work-section:hover,
+.welcome-section:hover {
+  box-shadow: 0px 8px 24px rgba(255, 255, 255, 0.4);
+  transform: translateY(-4px);
+}
+/* text Styles */
+.greeting {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.name {
+  font-size: 2.6rem;
+  font-weight: 800;
+}
+.role {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+.role {
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.85;
 }
 
-.skills-section li {
+/* !Skills section */
+.skills-section {
+  grid-column: span 4 / span 4;
+  grid-row-start: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+/* Tab Buttons */
+.header-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.header-btns > button {
+  background-color: var(--color-4);
+  border: none;
+  border-radius: 8px;
+  color: #08090d;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+.header-btns > button:hover {
+  background-color: var(--color-3);
+  color: #fff;
+  transform: scale(1.05);
+}
+.header-btns > button:active {
+  background-color: #0056b3;
+  transform: scale(0.98);
+}
+.skills-container {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+}
+.skills-container > ul {
+  display: flex;
+  gap: 1.5rem;
+  min-width: 200%;
+  animation: scroll 15s linear infinite;
+}
+/* Moving List */
+.skills-container > ul {
+  display: flex;
+  gap: 1.5rem;
+  min-width: 200%;
+  animation: scroll 15s linear infinite;
+}
+.skills-container > ul::after {
+  content: "";
+  display: block;
+  min-width: 100%;
+}
+/* Smooth Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.skill {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.12);
+  gap: 0.75rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out;
 }
-.skills-section li > img {
-  width: 24px;
+.skill:hover {
+  transform: scale(1.1);
 }
-li img {
-  margin-right: 10px;
+.tech-icon {
+  width: 30px;
+  height: 30px;
 }
 /* !Education */
 .education-section {
-  margin-bottom: 40px;
+  margin: 30px 0 40px;
   width: 100%;
 }
 h2 {
@@ -231,7 +359,7 @@ h2 {
   padding: 10px;
 }
 .education-container ul li {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-1);
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 10px;
