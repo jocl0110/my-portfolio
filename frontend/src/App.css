@@ -172,6 +172,10 @@ aside > ul > li > img:hover {
 }
 /* !Website Body */
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 45px 0 395px;
   padding: 20px;
   text-align: center;
@@ -186,6 +190,7 @@ main.sidebar-closed {
 .skills-section {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
+  width: 100%;
   border-radius: 10px;
   margin: 10rem 0;
 }
@@ -215,6 +220,7 @@ li img {
 /* !Education */
 .education-section {
   margin-bottom: 40px;
+  width: 100%;
 }
 h2 {
   font-size: var(--header-size);
@@ -508,12 +514,91 @@ footer p {
 .social-icons a:hover {
   color: var(--color-4);
 }
+/* !Form */
+form {
+  background-color: #101218;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(32, 201, 151, 0.3);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+  display: block;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-4);
+  border-radius: 4px;
+  background-color: #181b23;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #17a77f;
+  box-shadow: 0 0 5px rgba(32, 201, 151, 0.5);
+}
+
+/* Button */
+form > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-4);
+  color: #08090d;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+form > button:hover {
+  background-color: #124e3b;
+}
+/* Message */
+p.message {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 1.2rem;
+  max-width: 400px;
+  padding: 10px;
+
+  text-align: center;
+  border-radius: 4px;
+}
+p.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+p.warning {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
 /*! SPINNER */
 
 .sk-fading-circle {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
+  margin: auto;
+  width: 2.5rem;
+  height: 2.5rem;
   position: relative;
 }
 
@@ -531,7 +616,7 @@ footer p {
   margin: 0 auto;
   width: 15%;
   height: 15%;
-  background-color: #333;
+  background-color: var(--color-4);
   border-radius: 100%;
   -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
   animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;

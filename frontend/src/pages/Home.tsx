@@ -193,9 +193,9 @@ function Home({
           As part of my continuos learning journey, I recently completed an
           Udemy course on Back-End development, where I gained hands-on
           experience with <span className="highlight">Node.js</span>,
-          <span className="highlight">Express.js</span>,{" "}
-          <span className="highlight">MongoDB</span> and
-          <span className="highlight">Mongoose</span>.
+          <span className="highlight"> Express.js</span>,{" "}
+          <span className="highlight"> MongoDB </span> and
+          <span className="highlight"> Mongoose</span>.
         </p>
         <p>
           Currently, I plan to continue my university education to obtain a

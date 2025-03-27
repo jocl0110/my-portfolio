@@ -5,7 +5,9 @@ class MessageController {
   async sendMessage(req: express.Request, res: express.Response) {
     const { first_name, last_name, subject, email, message } = req.body;
     if (!first_name || !last_name || !subject || !email || !message) {
-      return res.status(404).json({ message: "All fields are required" });
+      return res
+        .status(400)
+        .json({ success: false, message: "All fields are required" });
     }
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailRegex.test(email)) {
