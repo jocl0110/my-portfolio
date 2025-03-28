@@ -23,7 +23,9 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
     try {
       setIsLoading(true);
       const apiUrl = import.meta.env.VITE_API_URL || '';
-      const response = await axios.post(`${apiUrl}/api/send_email`, formData, {
+      const url = apiUrl ? `${apiUrl}/api/send_email` : '/api/send_email';
+      console.log('Sending request to:', url);
+      const response = await axios.post(url, formData, {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"

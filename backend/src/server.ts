@@ -10,7 +10,6 @@ app.use(cors({
   origin: ["https://my-portfolio-jocl0110.netlify.app", "http://localhost:5173"],
   credentials: true
 }));
-
 app.use(express.json());
 app.use("/api", messageRouter);
 
