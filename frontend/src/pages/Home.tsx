@@ -142,20 +142,36 @@ function Home({
       </div>
       <section className="education-section">
         <h2 id="education">Education & Training</h2>
-
-        <div className="education-container">
-          <ul>
-            {education.map((goal) => {
-              return (
-                <li key={goal.id}>
-                  <h4>{goal.name}</h4>
-                  <p>{goal.when}</p>
-                  <p>{goal.school}</p>
-                  <p>{goal.location}</p>
-                </li>
-              );
-            })}
-          </ul>
+        <div className="education-timeline">
+          {education.map((goal) => {
+            return (
+              <div className="timeline-item" key={goal.id}>
+                <div className="timeline-dot"></div>
+                <div className="timeline-content">
+                  <div className="timeline-header">
+                    <h4>{goal.name}</h4>
+                    <span className="timeline-date">{goal.when}</span>
+                  </div>
+                  <div className="timeline-body">
+                    <p className="institution">{goal.school}</p>
+                    <p className="location">
+                      <span className="location-icon">📍</span>
+                      {goal.location}
+                    </p>
+                    {goal.achievements && goal.achievements.length > 0 && (
+                      <div className="achievement-badges">
+                        {goal.achievements.map((achievement, index) => (
+                          <span key={index} className="badge">
+                            {achievement}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
       <section className="projects-section">

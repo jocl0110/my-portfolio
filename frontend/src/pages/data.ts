@@ -31,6 +31,7 @@ interface Education {
   location: string;
   school: React.ReactNode | string;
   id: number;
+  achievements?: string[];
 }
 interface Projects {
   images: string[];
@@ -76,10 +77,11 @@ const education: Education[] = [
   },
   {
     when: "Finished 03/2022(Not Graduated)",
-    name: "Bachelor' Degree",
+    name: "Bachelor' Degree in Computer Programming",
     location: "Havana, Cuba",
     school: "University of Informatics Sciences",
     id: 2,
+    achievements: ["C++", "OOP", "Data Structures", "Algorithms"],
   },
   {
     when: "Finished 05/2023",
@@ -87,6 +89,7 @@ const education: Education[] = [
     location: "Online",
     school: "freeCodeCamp",
     id: 3,
+    achievements: ["HTML, CSS, Responsive Web Design"]
   },
   {
     when: "Finished 01/2024",
@@ -94,6 +97,7 @@ const education: Education[] = [
     location: "Online",
     school: "Code The Dream",
     id: 4,
+    achievements: ["JavaScript", "HTML", "CSS", "Git and Github", "API Integration"],
   },
   {
     when: "Finished 06/2024",
@@ -101,6 +105,7 @@ const education: Education[] = [
     location: "Online",
     school: "Code The Dream",
     id: 5,
+    achievements: ["React", "TypeScript", "API Integration"],
   },
 ];
 

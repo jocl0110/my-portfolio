@@ -72,14 +72,15 @@ function SideBar({
                 <FaGraduationCap className="nav-icon" /> Education
               </a>
             </li>
-            <li>
-              <a href="#about_me">
-                <FaUser className="nav-icon" /> About Me
-              </a>
-            </li>
+
             <li>
               <a href="#projects">
                 <FaCode className="nav-icon" /> Projects
+              </a>
+            </li>
+            <li>
+              <a href="#about_me">
+                <FaUser className="nav-icon" /> About Me
               </a>
             </li>
             <li>
