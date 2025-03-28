@@ -8,12 +8,12 @@ import React, { useState } from "react";
 
 export interface SideBarStateProps {
   isSidebarOpen: boolean;
-  setIsSidebarOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
   return (
     <>

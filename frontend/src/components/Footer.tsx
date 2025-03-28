@@ -1,8 +1,11 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { SideBarStateProps } from "../App";
 import { FaXTwitter } from "react-icons/fa6";
 
-function Footer({ isSidebarOpen }: SideBarStateProps) {
+interface FooterProps {
+  isSidebarOpen: boolean
+}
+
+function Footer({ isSidebarOpen }: FooterProps) {
   const year = new Date().getFullYear();
   return (
     <footer className={isSidebarOpen ? "sidebar-open" : "sidebar-closed"}>
