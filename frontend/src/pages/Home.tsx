@@ -59,10 +59,7 @@ function Home({
 
   return (
     <main className={isSidebarOpen ? "" : "sidebar-closed"}>
-      <ToggleBtn
-        setIsSidebarOpen={setIsSidebarOpen}
-        isSidebarOpen={isSidebarOpen}
-      />
+      <ToggleBtn setIsSidebarOpen={setIsSidebarOpen} />
       <div id="home" className="first-section">
         <div className="intro-section">
           <h1 className="greeting">Hi there!</h1>

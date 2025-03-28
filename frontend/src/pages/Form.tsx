@@ -32,13 +32,14 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
         success: response.data.success,
         message: response.data.message,
       });
-    } catch (error: any) {
+    } catch (error) {
+      const axiosError = error as { response?: { data?: { message?: string } } };
       console.log(error);
 
       setMessage({
         success: false,
         message:
-          error.response?.data?.message ||
+          axiosError.response?.data?.message ||
           "Something went wrong. Please try again",
       });
     } finally {
@@ -62,10 +63,7 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
   };
   return (
     <main className={isSidebarOpen ? "" : "sidebar-closed"}>
-      <ToggleBtn
-        setIsSidebarOpen={setIsSidebarOpen}
-        isSidebarOpen={isSidebarOpen}
-      />
+      <ToggleBtn setIsSidebarOpen={setIsSidebarOpen} />
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="first_name">First Name:</label>

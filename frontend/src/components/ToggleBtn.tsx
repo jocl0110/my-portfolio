@@ -1,7 +1,11 @@
 import { FaBars } from "react-icons/fa";
-import { SideBarStateProps } from "../App";
+import { Dispatch, SetStateAction } from "react";
 
-const ToggleBtn = ({ setIsSidebarOpen }: SideBarStateProps) => {
+interface ToggleBtnProps {
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const ToggleBtn = ({ setIsSidebarOpen }: ToggleBtnProps) => {
   return (
     <button
       className="sidebar-toggle"
