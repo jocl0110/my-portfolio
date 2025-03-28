@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:2133",
+        target: "https://my-portfolio-h4lb.onrender.com",
         changeOrigin: true,
         secure: false,
       },
