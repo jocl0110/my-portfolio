@@ -26,7 +26,8 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
       const response = await axios.post(`${apiUrl}/api/send_email`, formData, {
         headers: {
           "Content-Type": "application/json",
-        },
+          "Accept": "application/json"
+        }
       });
       console.log(response);
       setMessage({
