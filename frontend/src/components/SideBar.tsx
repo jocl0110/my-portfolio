@@ -30,7 +30,7 @@ function SideBar({
 }: SideBarProps) {
   const openModal = () => {
     setIsModalOpen(true);
-    setModalImage("../../images/me.png");
+    setModalImage("/me.png");
   };
   const location = useLocation();
   useEffect(() => {
@@ -53,7 +53,7 @@ function SideBar({
             <img
               onClick={openModal}
               className="my_image"
-              src="../../images/me.png"
+              src="/me.png"
               alt="me"
             />
           </li>

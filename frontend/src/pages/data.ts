@@ -119,9 +119,9 @@ const projects: Projects[] = [
     github: "https://github.com/jocl0110/react-todo",
     id: 1,
     images: [
-      "../../images/todo-laptop.png",
-      "../../images/todo-tablet.png",
-      "../../images/todo-phone.png",
+      "/todo-laptop.png",
+      "/todo-tablet.png",
+      "/todo-phone.png",
     ],
     name: "Todo List App",
     description:
@@ -136,9 +136,9 @@ const projects: Projects[] = [
     github: "https://github.com/jocl0110/RecipesApp",
     id: 2,
     images: [
-      "../../images/recipe-laptop.png",
-      "../../images/recipe-tablet.png",
-      "../../images/recipe-phone.png",
+      "/recipe-laptop.png",
+      "/recipe-tablet.png",
+      "/recipe-phone.png",
     ],
     name: "Recipes App",
     description:
@@ -154,9 +154,9 @@ const projects: Projects[] = [
     github: "https://github.com/jocl0110/plan-my-day",
     id: 3,
     images: [
-      "../../images/weather-laptop.png",
-      "../../images/weather-tablet.png",
-      "../../images/weather-phone.png",
+      "/weather-laptop.png",
+      "/weather-tablet.png",
+      "/weather-phone.png",
     ],
     name: "Weather App",
     description:
