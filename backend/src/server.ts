@@ -7,8 +7,9 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: ["https://my-portfolio-jocl0110.netlify.app", "http://localhost:5173"],
-  credentials: true
+  origin: ["https://flourishing-wisp-50b475.netlify.app", "http://localhost:5173"],
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS']
 }));
 app.use(express.json());
 app.use("/api", messageRouter);
