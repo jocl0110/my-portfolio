@@ -1,18 +1,26 @@
-import "dotenv/config"
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import messageRouter from "./routes/messageRouter";
+import errorHandler from "./middleware/errorHandler";
 
 const app = express();
 
 // CORS configuration
-app.use(cors({
-  origin: ["https://flourishing-wisp-50b475.netlify.app", "http://localhost:5173"],
-  credentials: true,
-  methods: ['GET', 'POST', 'OPTIONS']
-}));
+app.use(
+  cors({
+    origin: [
+      "https://flourishing-wisp-50b475.netlify.app",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "OPTIONS"],
+  })
+);
 app.use(express.json());
+
 app.use("/api", messageRouter);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 2133;
 
