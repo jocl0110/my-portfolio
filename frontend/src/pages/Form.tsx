@@ -22,23 +22,29 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
     event.preventDefault();
     try {
       setIsLoading(true);
-      const apiUrl = import.meta.env.VITE_API_URL || '';
-      const url = apiUrl ? `${apiUrl}/api/send_email` : '/api/send_email';
-      console.log('Sending request to:', url);
+      const apiUrl = import.meta.env.VITE_API_URL || "";
+      const url = apiUrl ? `${apiUrl}/api/send_email` : "/api/send_email";
       const response = await axios.post(url, formData, {
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json"
-        }
+          Accept: "application/json",
+        },
       });
-      console.log(response);
+      setFormData({
+        first_name: "",
+        last_name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
       setMessage({
         success: response.data.success,
         message: response.data.message,
       });
     } catch (error) {
-      const axiosError = error as { response?: { data?: { message?: string } } };
-      console.log(error);
+      const axiosError = error as {
+        response?: { data?: { message?: string } };
+      };
 
       setMessage({
         success: false,

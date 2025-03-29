@@ -3,9 +3,11 @@ import express from "express";
 import cors from "cors";
 import messageRouter from "./routes/messageRouter";
 import errorHandler from "./middleware/errorHandler";
+import { PORT } from "./constants/env";
 
 const app = express();
 
+// Middlewares
 // CORS configuration
 app.use(
   cors({
@@ -17,12 +19,12 @@ app.use(
     methods: ["GET", "POST", "OPTIONS"],
   })
 );
+// Body parser middleware
 app.use(express.json());
 
+// Routes
 app.use("/api", messageRouter);
 app.use(errorHandler);
-
-const PORT = process.env.PORT || 2133;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

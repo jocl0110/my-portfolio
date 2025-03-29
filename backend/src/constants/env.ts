@@ -8,3 +8,4 @@ const getEnv = (key: string, defaultValue?: string): string => {
 
 export const EMAIL = getEnv("EMAIL");
 export const PASSWORD = getEnv("PASSWORD");
+export const PORT = getEnv("PORT", "5000"); // Default to 5000 if PORT is not set

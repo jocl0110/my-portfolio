@@ -64,7 +64,7 @@ function Home({
         <div className="intro-section">
           <h1 className="greeting">Hi there!</h1>
           <h1 className="name">I'm Jose Izquierdo</h1>
-          <h2 className="role">Full Stack Web Developer</h2>
+          <h2 className="role">MERN Stack Web Developer</h2>
           <p className="description">
             Passionate about building web experiences with modern technologies
           </p>
