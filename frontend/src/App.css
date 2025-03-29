@@ -50,8 +50,13 @@ body {
 
 /* Bounce animation for sidebar toggle */
 @keyframes bounce {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.5); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
 }
 
 /* Sidebar toggle button */
@@ -272,6 +277,7 @@ main.sidebar-closed {
 }
 
 .role {
+  color: var(--color-4);
   font-size: 1.8rem;
   font-weight: 800;
 }
@@ -404,7 +410,7 @@ main.sidebar-closed {
 }
 
 .education-section h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -420,7 +426,7 @@ main.sidebar-closed {
 }
 
 .education-timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -545,14 +551,14 @@ main.sidebar-closed {
 }
 
 @media (max-width: 768px) {
-  .education-section { 
-    padding: 1rem; 
+  .education-section {
+    padding: 1rem;
   }
-  .education-timeline::before { 
-    left: 20px; 
+  .education-timeline::before {
+    left: 20px;
   }
-  .timeline-dot { 
-    left: 20px; 
+  .timeline-dot {
+    left: 20px;
   }
   .timeline-content {
     width: calc(100% - 50px);
@@ -562,8 +568,8 @@ main.sidebar-closed {
     flex-direction: column;
     gap: 0.5rem;
   }
-  .timeline-date { 
-    align-self: flex-start; 
+  .timeline-date {
+    align-self: flex-start;
   }
 }
 
