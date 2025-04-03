@@ -393,6 +393,76 @@ main.sidebar-closed {
   height: 30px;
 }
 
+/*! MEDIA QUERIES for the first section */
+@media (max-width: 750px) {
+  .first-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  .intro-section,
+  .work-section,
+  .welcome-section {
+    width: 100%;
+    max-width: 500px;
+    grid-column: unset;
+    grid-row: unset;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .skills-section {
+    max-width: 500px;
+    width: 100%;
+  }
+  .greeting {
+    font-size: 2rem;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .role {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 540px) {
+  .sidebar-close {
+    transform: translateX(-100%);
+  }
+  .hidden {
+    display: none;
+  }
+  aside {
+    z-index: 1000;
+    max-width: 100%;
+    width: 100%;
+  }
+  main {
+    margin: 0;
+    padding: 10px;
+  }
+  main.sidebar-closed {
+    margin-left: 0;
+  }
+  .first-section {
+    padding: 0 10px;
+  }
+  aside.closed {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  aside {
+    background-color: #000000;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
 /* !Education */
 .education-section {
   margin: 4rem auto;
