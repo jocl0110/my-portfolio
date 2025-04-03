@@ -30,9 +30,14 @@ function SideBar({
 }: SideBarProps) {
   const openModal = () => {
     setIsModalOpen(true);
-    setModalImage("/me.png");
+    setModalImage("/me.webp");
   };
   const location = useLocation();
+  const handleLinkClick = () => {
+    if (window.innerWidth <= 540) {
+      setIsSidebarOpen((prevState) => !prevState);
+    }
+  };
   useEffect(() => {
     if (location.hash === "#home") {
       document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
@@ -43,8 +48,8 @@ function SideBar({
     <>
       <aside className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
         <button
-          className="sidebar-close"
-          onClick={() => setIsSidebarOpen?.(!isSidebarOpen)}
+          className={`sidebar-close`}
+          onClick={() => setIsSidebarOpen((prevState) => !prevState)}
         >
           <FaTimes />
         </button>
@@ -53,7 +58,7 @@ function SideBar({
             <img
               onClick={openModal}
               className="my_image"
-              src="/me.png"
+              src="/me.webp"
               alt="me"
             />
           </li>
@@ -68,23 +73,23 @@ function SideBar({
               </Link>
             </li>
             <li>
-              <a href="#education">
+              <a onClick={handleLinkClick} href="#education">
                 <FaGraduationCap className="nav-icon" /> Education
               </a>
             </li>
 
             <li>
-              <a href="#projects">
+              <a onClick={handleLinkClick} href="#projects">
                 <FaCode className="nav-icon" /> Projects
               </a>
             </li>
             <li>
-              <a href="#about_me">
+              <a onClick={handleLinkClick} href="#about_me">
                 <FaUser className="nav-icon" /> About Me
               </a>
             </li>
             <li>
-              <Link to={"/send_email"}>
+              <Link onClick={handleLinkClick} to={"/send_email"}>
                 <FaEnvelope className="nav-icon" /> Let's connect
               </Link>
             </li>

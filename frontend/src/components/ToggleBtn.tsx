@@ -2,13 +2,14 @@ import { FaBars } from "react-icons/fa";
 import { Dispatch, SetStateAction } from "react";
 
 interface ToggleBtnProps {
+  isSidebarOpen: boolean;
   setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const ToggleBtn = ({ setIsSidebarOpen }: ToggleBtnProps) => {
+const ToggleBtn = ({ setIsSidebarOpen, isSidebarOpen }: ToggleBtnProps) => {
   return (
     <button
-      className="sidebar-toggle"
+      className={`sidebar-toggle ${!isSidebarOpen ? "visible" : "hidden"}`}
       onClick={() => setIsSidebarOpen((prev) => !prev)}
     >
       <FaBars />
