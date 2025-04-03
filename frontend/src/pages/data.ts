@@ -89,7 +89,7 @@ const education: Education[] = [
     location: "Online",
     school: "freeCodeCamp",
     id: 3,
-    achievements: ["HTML, CSS, Responsive Web Design"]
+    achievements: ["HTML, CSS, Responsive Web Design"],
   },
   {
     when: "Finished 01/2024",
@@ -97,7 +97,13 @@ const education: Education[] = [
     location: "Online",
     school: "Code The Dream",
     id: 4,
-    achievements: ["JavaScript", "HTML", "CSS", "Git and Github", "API Integration"],
+    achievements: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Git and Github",
+      "API Integration",
+    ],
   },
   {
     when: "Finished 06/2024",
@@ -118,11 +124,7 @@ const projects: Projects[] = [
   {
     github: "https://github.com/jocl0110/react-todo",
     id: 1,
-    images: [
-      "/todo-laptop.png",
-      "/todo-tablet.png",
-      "/todo-phone.png",
-    ],
+    images: ["/todo-laptop.webp", "/todo-tablet.webp", "/todo-phone.webp"],
     name: "Todo List App",
     description:
       "This is one of my first projects built while learning React. It’s a simple yet functional application that allows users to manage a list of tasks easily. The app connects to Airtable API to fetch and update todos.",
@@ -136,9 +138,9 @@ const projects: Projects[] = [
     github: "https://github.com/jocl0110/RecipesApp",
     id: 2,
     images: [
-      "/recipe-laptop.png",
-      "/recipe-tablet.png",
-      "/recipe-phone.png",
+      "/recipe-laptop.webp",
+      "/recipe-tablet.webp",
+      "/recipe-phone.webp",
     ],
     name: "Recipes App",
     description:
@@ -154,9 +156,9 @@ const projects: Projects[] = [
     github: "https://github.com/jocl0110/plan-my-day",
     id: 3,
     images: [
-      "/weather-laptop.png",
-      "/weather-tablet.png",
-      "/weather-phone.png",
+      "/weather-laptop.webp",
+      "/weather-tablet.webp",
+      "/weather-phone.webp",
     ],
     name: "Weather App",
     description:
