@@ -73,7 +73,10 @@ function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
   };
   return (
     <main className={isSidebarOpen ? "" : "sidebar-closed"}>
-      <ToggleBtn setIsSidebarOpen={setIsSidebarOpen} />
+      <ToggleBtn
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="first_name">First Name:</label>

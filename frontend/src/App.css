@@ -205,7 +205,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 45px 0 395px;
+  margin: 40px 45px 0 395px;
   padding: 20px;
   text-align: center;
   transition: margin-left 0.4s ease;
@@ -941,7 +941,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 20px;
+  margin: 3rem auto 1.5rem;
 }
 
 /* Labels */

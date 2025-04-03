@@ -9,7 +9,7 @@ interface ToggleBtnProps {
 const ToggleBtn = ({ setIsSidebarOpen, isSidebarOpen }: ToggleBtnProps) => {
   return (
     <button
-      className={`sidebar-toggle ${!isSidebarOpen ? "visible" : "hidden"}`}
+      className={`sidebar-toggle ${isSidebarOpen ? "hidden" : ""}`}
       onClick={() => setIsSidebarOpen((prev) => !prev)}
     >
       <FaBars />
