@@ -29,6 +29,7 @@ interface Education {
   when: string;
   name: string;
   location: string;
+  desciption?: string;
   school: React.ReactNode | string;
   id: number;
   achievements?: string[];
@@ -80,6 +81,8 @@ const education: Education[] = [
     name: "Bachelor' Degree in Computer Programming",
     location: "Havana, Cuba",
     school: "University of Informatics Sciences",
+    desciption:
+      "Wrote my first lines of code in C++ during my first year at the University of Informatics Sciences. I learned the basics of programming, algorithms, and data structures.",
     id: 2,
     achievements: ["C++", "OOP", "Data Structures", "Algorithms"],
   },
@@ -87,14 +90,18 @@ const education: Education[] = [
     when: "Finished 05/2023",
     name: "Responsive Web Design Certification",
     location: "Online",
+    desciption:
+      "With this certification I learned the basics of web development and design, including HTML and CSS. It focuses on building responsive websites that work on various devices and screen sizes.",
     school: "freeCodeCamp",
     id: 3,
-    achievements: ["HTML, CSS, Responsive Web Design"],
+    achievements: ["HTML", "CSS", "Responsive Web Design"],
   },
   {
     when: "Finished 01/2024",
     name: "Intro to Programming",
     location: "Online",
+    desciption:
+      "This course allowed me to deepen my understanding of programming concepts and best practices. It covered fundamental programming concepts using JavaScript, including variables, functions, loops, and conditionals.",
     school: "Code The Dream",
     id: 4,
     achievements: [
@@ -109,9 +116,11 @@ const education: Education[] = [
     when: "Finished 06/2024",
     name: "React.JS",
     location: "Online",
+    desciption:
+      "I learned how to build dynamic and interactive web applications using React.js. The course covered the fundamentals of React, including components, state management, and routing.",
     school: "Code The Dream",
     id: 5,
-    achievements: ["React", "TypeScript", "API Integration"],
+    achievements: ["React", "TypeScript", "API Integration", "React Router"],
   },
 ];
 

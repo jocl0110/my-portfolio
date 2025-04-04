@@ -253,7 +253,7 @@ main.sidebar-closed {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: justify;
   transition: all 0.3s ease-in-out;
 }
 
@@ -408,26 +408,27 @@ main.sidebar-closed {
   .work-section,
   .welcome-section {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     grid-column: unset;
     grid-row: unset;
     padding: 1rem;
     margin: 1rem;
+    text-align: center;
   }
   .skills-section {
     max-width: 500px;
     width: 100%;
   }
   .greeting {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   .name {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .role {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 }
 @media (max-width: 540px) {
@@ -593,7 +594,12 @@ main.sidebar-closed {
   font-style: italic;
   opacity: 0.9;
 }
-
+.description {
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: left;
+  margin-bottom: 1rem;
+}
 .location-icon {
   font-size: 1.2rem;
 }
