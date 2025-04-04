@@ -103,7 +103,6 @@ function Home({
           </div>
           <div className="skills-container">
             <ul>
-              {/* Dynamically rendering items */}
               {(activeTab === "knowledge" ? skills : learning).map((data) => {
                 return (
                   <li className="skill" key={data.id}>
@@ -113,29 +112,12 @@ function Home({
                 );
               })}
 
-              {/* Duplicate the list for seamless scrolling */}
               {(activeTab === "knowledge" ? skills : learning).map((data) => (
                 <li className="skill" key={`dup-${data.id}`}>
                   <img className="tech-icon" src={data.icon} alt="icon" />
                   <span>{data.skill}</span>
                 </li>
               ))}
-
-              {/* {activeTab === "knowledge"
-                ? skills.map((data) => (
-                    <li className="skill" key={data.id}>
-                      <img className="tech-icon" src={data.icon} alt="icon" />
-                      <span>{data.skill}</span>
-                    </li>
-                  ))
-                : learning.map((data) => {
-                    return (
-                      <li className="skill" key={data.id}>
-                        <img className="tech-icon" src={data.icon} alt="icon" />
-                        <span>{data.skill}</span>
-                      </li>
-                    );
-                  })} */}
             </ul>
           </div>
         </section>
@@ -154,6 +136,9 @@ function Home({
                   </div>
                   <div className="timeline-body">
                     <p className="institution">{goal.school}</p>
+                    {goal.desciption && (
+                      <p className="description">{goal.desciption}</p>
+                    )}
                     <p className="location">
                       <span className="location-icon">📍</span>
                       {goal.location}
