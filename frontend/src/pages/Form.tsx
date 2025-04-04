@@ -2,10 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import "../App.css";
 import ToggleBtn from "../components/ToggleBtn";
-import { SideBarStateProps } from "../App";
+import { SidebarStateProps } from "../types/types";
 import { IoIosSend } from "react-icons/io";
 
-function Form({ isSidebarOpen, setIsSidebarOpen }: SideBarStateProps) {
+function Form({ isSidebarOpen, setIsSidebarOpen }: SidebarStateProps) {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",

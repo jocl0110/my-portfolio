@@ -19,22 +19,25 @@ import javaIcon from "../assets/svg/java.svg";
 import vueIcon from "../assets/svg/vue.svg";
 
 const myAge = new Date().getFullYear() - 2001;
+
 // Types
-interface Skill {
+export interface Skill {
   skill: string;
   id: number;
   icon: string;
 }
-interface Education {
+
+export interface Education {
   when: string;
   name: string;
   location: string;
-  desciption?: string;
+  description?: string;
   school: React.ReactNode | string;
   id: number;
   achievements?: string[];
 }
-interface Projects {
+
+export interface Project {
   images: string[];
   description: string;
   name: string;
@@ -43,7 +46,6 @@ interface Projects {
   github: string;
 }
 
-// Data
 const skills: Skill[] = [
   { skill: "HTML", id: 1, icon: htmlIcon },
   { skill: "JavaScript", id: 2, icon: javascriptIcon },
@@ -58,7 +60,8 @@ const skills: Skill[] = [
   { skill: "MongoDB", id: 12, icon: mongoIcon },
   { skill: "CSS", id: 13, icon: cssIcon },
 ];
-const learning = [
+
+const learning: Skill[] = [
   { skill: "MySQL", id: 1, icon: mySQLIcon },
   { skill: "Tailwind", id: 2, icon: tailwindIcon },
   { skill: "Python", id: 3, icon: pythonIcon },
@@ -68,75 +71,19 @@ const learning = [
   { skill: "Vue", id: 7, icon: vueIcon },
 ];
 
-const education: Education[] = [
-  {
-    when: "Graduated 05/2019",
-    name: "High School",
-    location: "Pinar del Rio, Cuba",
-    school: "Friedrich Engels",
-    id: 1,
-  },
-  {
-    when: "Finished 03/2022(Not Graduated)",
-    name: "Bachelor' Degree in Computer Programming",
-    location: "Havana, Cuba",
-    school: "University of Informatics Sciences",
-    desciption:
-      "Wrote my first lines of code in C++ during my first year at the University of Informatics Sciences. I learned the basics of programming, algorithms, and data structures.",
-    id: 2,
-    achievements: ["C++", "OOP", "Data Structures", "Algorithms"],
-  },
-  {
-    when: "Finished 05/2023",
-    name: "Responsive Web Design Certification",
-    location: "Online",
-    desciption:
-      "With this certification I learned the basics of web development and design, including HTML and CSS. It focuses on building responsive websites that work on various devices and screen sizes.",
-    school: "freeCodeCamp",
-    id: 3,
-    achievements: ["HTML", "CSS", "Responsive Web Design"],
-  },
-  {
-    when: "Finished 01/2024",
-    name: "Intro to Programming",
-    location: "Online",
-    desciption:
-      "This course allowed me to deepen my understanding of programming concepts and best practices. It covered fundamental programming concepts using JavaScript, including variables, functions, loops, and conditionals.",
-    school: "Code The Dream",
-    id: 4,
-    achievements: [
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Git and Github",
-      "API Integration",
-    ],
-  },
-  {
-    when: "Finished 06/2024",
-    name: "React.JS",
-    location: "Online",
-    desciption:
-      "I learned how to build dynamic and interactive web applications using React.js. The course covered the fundamentals of React, including components, state management, and routing.",
-    school: "Code The Dream",
-    id: 5,
-    achievements: ["React", "TypeScript", "API Integration", "React Router"],
-  },
-];
-
 const tabs = [
   { name: "Knowledge", content: { skills } },
   { name: "Learning", content: { learning } },
 ];
 
-const projects: Projects[] = [
+const projects: Project[] = [
   {
     github: "https://github.com/jocl0110/react-todo",
     id: 1,
     images: ["/todo-laptop.webp", "/todo-tablet.webp", "/todo-phone.webp"],
     name: "Todo List App",
     description:
-      "This is one of my first projects built while learning React. It’s a simple yet functional application that allows users to manage a list of tasks easily. The app connects to Airtable API to fetch and update todos.",
+      "This is one of my first projects built while learning React. It's a simple yet functional application that allows users to manage a list of tasks easily. The app connects to Airtable API to fetch and update todos.",
     skills: [
       { skill: " React", id: 1, icon: reactIcon },
       { skill: "TypeScript", id: 2, icon: typeIcon },
@@ -180,4 +127,61 @@ const projects: Projects[] = [
   },
 ];
 
+const education: Education[] = [
+  {
+    when: "Graduated 05/2019",
+    name: "High School",
+    location: "Pinar del Rio, Cuba",
+    school: "Friedrich Engels",
+    id: 1,
+  },
+  {
+    when: "Finished 03/2022(Not Graduated)",
+    name: "Bachelor' Degree in Computer Programming",
+    location: "Havana, Cuba",
+    school: "University of Informatics Sciences",
+    description:
+      "Wrote my first lines of code in C++ during my first year at the University of Informatics Sciences. I learned the basics of programming, algorithms, and data structures.",
+    id: 2,
+    achievements: ["C++", "OOP", "Data Structures", "Algorithms"],
+  },
+  {
+    when: "Finished 05/2023",
+    name: "Responsive Web Design Certification",
+    location: "Online",
+    description:
+      "With this certification I learned the basics of web development and design, including HTML and CSS. It focuses on building responsive websites that work on various devices and screen sizes.",
+    school: "freeCodeCamp",
+    id: 3,
+    achievements: ["HTML", "CSS", "Responsive Web Design"],
+  },
+  {
+    when: "Finished 01/2024",
+    name: "Intro to Programming",
+    location: "Online",
+    description:
+      "This course allowed me to deepen my understanding of programming concepts and best practices. It covered fundamental programming concepts using JavaScript, including variables, functions, loops, and conditionals.",
+    school: "Code The Dream",
+    id: 4,
+    achievements: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Git and Github",
+      "API Integration",
+    ],
+  },
+  {
+    when: "Finished 06/2024",
+    name: "React.JS",
+    location: "Online",
+    description:
+      "I learned how to build dynamic and interactive web applications using React.js. The course covered the fundamentals of React, including components, state management, and routing.",
+    school: "Code The Dream",
+    id: 5,
+    achievements: ["React", "TypeScript", "API Integration", "React Router"],
+  },
+];
+
+// Export all data
 export { skills, education, learning, tabs, projects, myAge };

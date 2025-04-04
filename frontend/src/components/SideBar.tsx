@@ -8,19 +8,12 @@ import {
   FaFileDownload,
   FaTimes,
 } from "react-icons/fa";
-import React, { useEffect } from "react";
+import { useEffect, memo } from "react";
 import Modal from "./Modal";
 import { useLocation } from "react-router";
-interface SideBarProps {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isModalOpen: boolean;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setModalImage: React.Dispatch<React.SetStateAction<string>>;
-  modalImage: string;
-}
+import { SideBarProps } from "../types/types.ts"; // Ensure you have the correct path for your types
 
-function SideBar({
+const SideBar = memo(function SideBar({
   isSidebarOpen,
   setIsSidebarOpen,
   setIsModalOpen,
@@ -107,6 +100,6 @@ function SideBar({
       )}
     </>
   );
-}
+});
 
 export default SideBar;

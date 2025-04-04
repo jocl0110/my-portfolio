@@ -1,9 +1,5 @@
-import React from "react";
+import { ModalProps } from "../types/types";
 
-interface ModalProps {
-  image: string;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
 function Modal({ setIsModalOpen, image }: ModalProps) {
   return (
     <div
