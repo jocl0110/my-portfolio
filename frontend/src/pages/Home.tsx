@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { education, learning, myAge, projects, skills } from "./data";
 import {
   IoIosLaptop,
@@ -6,15 +6,8 @@ import {
   IoIosTabletPortrait,
 } from "react-icons/io";
 import ToggleBtn from "../components/ToggleBtn";
-import { SideBarStateProps } from "../App";
 import Modal from "../components/Modal";
-
-interface HomeProps extends SideBarStateProps {
-  isModalOpen: boolean;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  modalImage: string;
-  setModalImage: React.Dispatch<React.SetStateAction<string>>;
-}
+import { HomeProps } from "../types/types";
 
 function Home({
   isSidebarOpen,
@@ -67,7 +60,7 @@ function Home({
         <div className="intro-section">
           <h1 className="greeting">Hi there!</h1>
           <h1 className="name">I'm Jose Izquierdo</h1>
-          <h2 className="role">MERN Stack Web Developer</h2>
+          <h2 className="role">MERN Web Developer</h2>
           <p className="description">
             Passionate about building web experiences with modern technologies
           </p>
@@ -136,8 +129,8 @@ function Home({
                   </div>
                   <div className="timeline-body">
                     <p className="institution">{goal.school}</p>
-                    {goal.desciption && (
-                      <p className="description">{goal.desciption}</p>
+                    {goal.description && (
+                      <p className="description">{goal.description}</p>
                     )}
                     <p className="location">
                       <span className="location-icon">📍</span>

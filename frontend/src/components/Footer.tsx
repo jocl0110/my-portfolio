@@ -1,9 +1,6 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-
-interface FooterProps {
-  isSidebarOpen: boolean
-}
+import { FooterProps } from "../types/types";
 
 function Footer({ isSidebarOpen }: FooterProps) {
   const year = new Date().getFullYear();

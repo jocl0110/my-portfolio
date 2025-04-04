@@ -1,10 +1,5 @@
 import { FaBars } from "react-icons/fa";
-import { Dispatch, SetStateAction } from "react";
-
-interface ToggleBtnProps {
-  isSidebarOpen: boolean;
-  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
-}
+import { ToggleBtnProps } from "../types/types";
 
 const ToggleBtn = ({ setIsSidebarOpen, isSidebarOpen }: ToggleBtnProps) => {
   return (

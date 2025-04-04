@@ -288,7 +288,7 @@ main.sidebar-closed {
   opacity: 0.85;
 }
 
-/* !Skills section */
+/* !SKILLS SECTION */
 .skills-section {
   grid-column: span 4 / span 4;
   grid-row-start: 3;
@@ -464,7 +464,7 @@ main.sidebar-closed {
   }
 }
 
-/* !Education */
+/* !EDUCATION AND TRAINING */
 .education-section {
   margin: 4rem auto;
   max-width: 1200px;
@@ -612,6 +612,7 @@ main.sidebar-closed {
 }
 
 .badge {
+  cursor: pointer;
   background: rgba(32, 201, 151, 0.1);
   color: var(--color-4);
   padding: 0.3rem 0.8rem;
